@@ -288,13 +288,7 @@ body {
   gap: 24px;
   margin-bottom: 48px;
 }
-.section-header-left {}
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
+
 .eyebrow.gold { color: var(--gold); }
 
 .section-header h2 {
