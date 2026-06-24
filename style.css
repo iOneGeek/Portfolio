@@ -50,15 +50,10 @@ body {
   gap: 14px;
   text-decoration: none;
 }
-.logo-box {
-  width: 44px; height: 44px;
-  border: 2px solid var(--gold);
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-size: 18px;
-  color: var(--gold);
-  letter-spacing: 1px;
+.logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
 }
 .brand-text {
   display: flex;
@@ -343,10 +338,19 @@ body {
 .portfolio-card:hover .card-info { opacity: 1; transform: translateY(0); }
 
 .card-img {
-  height: 260px;
+  height: 300px;
   transition: transform 0.5s ease;
   position: relative;
   overflow: hidden;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+}
+.card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
 }
 
 /* Silhouette shapes */
@@ -526,9 +530,9 @@ body {
 }
 
 .service-card {
-  padding: 48px 36px;
+  padding: 56px 40px;
   background: var(--dark3);
-  border: 1px solid rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
   border-top: 2px solid transparent;
   transition: border-top-color 0.3s, background 0.3s, transform 0.3s;
   cursor: pointer;
@@ -541,13 +545,25 @@ body {
 .service-card.active { transform: translateY(-4px); }
 
 .service-icon {
-  font-size: 32px;
-  margin-bottom: 20px;
-  opacity: 0.8;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 28px;
+  color: var(--gold);
+  opacity: 0.85;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.service-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.service-card:hover .service-icon,
+.service-card.active .service-icon {
+  opacity: 1;
+  transform: scale(1.08);
 }
 .service-card h3 {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 22px;
   letter-spacing: 2px;
   color: var(--white);
   margin-bottom: 14px;
@@ -555,7 +571,7 @@ body {
 .service-card p {
   font-size: 13px;
   color: var(--muted);
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 /* ─── CONTACT ─── */
@@ -668,4 +684,76 @@ body {
   #contact { grid-template-columns: 1fr; }
   .contact-left, .contact-info { padding: 48px 24px; border: none; }
   .section-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* CHU placeholder */
+.chu-card {
+  background: linear-gradient(135deg, #0a1520 0%, #0d2035 50%, #081018 100%) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(200,131,42,0.2);
+}
+.chu-label {
+  font-family: var(--font-display);
+  font-size: 36px;
+  letter-spacing: 6px;
+  color: rgba(200,131,42,0.4);
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ─── PORTFOLIO LINKS ─── */
+a.portfolio-card {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+a.portfolio-card:hover .card-img {
+  transform: scale(1.04);
+}
+a.portfolio-card .card-info::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(200,131,42,0.08);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+a.portfolio-card:hover .card-info::before {
+  opacity: 1;
+}
+.card-link-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--gold);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s, transform 0.3s;
+}
+a.portfolio-card:hover .card-link-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+.card-soon {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 2px 8px;
+  vertical-align: middle;
+}
+.card-info {
+  position: relative;
 }

@@ -41,17 +41,7 @@ const skillObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.4 });
 skillFills.forEach(el => skillObserver.observe(el));
 
-// ─── PORTFOLIO CARD HOVER GLOW ───
-document.querySelectorAll('.portfolio-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    card.querySelector('.card-img').style.background =
-      `radial-gradient(circle at ${x}% ${y}%, rgba(200,131,42,0.12), transparent 60%), ` +
-      getComputedStyle(card.querySelector('.card-img')).background;
-  });
-});
+// Portfolio card hover - handled by CSS only
 
 // ─── SECTION REVEAL ON SCROLL ───
 const revealObserver = new IntersectionObserver((entries) => {
