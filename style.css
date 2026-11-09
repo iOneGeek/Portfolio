@@ -133,7 +133,7 @@ body {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('Image/hero.png') center/cover no-repeat;
+  background: url('Image/hero.jpg') center/cover no-repeat;
   z-index: 0;
 }
 .hero-bg::before {
@@ -277,7 +277,7 @@ body {
 /* ─── PORTFOLIO ─── */
 #portfolio {
   padding: 100px 60px;
-  background: linear-gradient(to bottom, rgba(10,10,10,0.97), rgba(10,10,10,0.93)), url('Image/city.png') center/cover no-repeat fixed;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.97), rgba(10,10,10,0.93)), url('Image/city.jpg') center/cover no-repeat fixed;
 }
 
 .section-header {
@@ -424,7 +424,7 @@ body {
   width: 100%;
   height: 100%;
   min-height: 520px;
-  background: url('Image/about.png') center/cover no-repeat;
+  background: url('Image/about.jpg') center/cover no-repeat;
 }
 .about-img-placeholder::after {
   content: '';
@@ -609,6 +609,12 @@ body {
   font-size: 14px;
   color: var(--text);
 }
+.contact-line a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-line a:hover { color: var(--gold); }
 .ci-icon {
   font-size: 18px;
   color: var(--gold);
